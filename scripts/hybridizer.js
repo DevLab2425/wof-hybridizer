@@ -53,16 +53,17 @@ const HYBRIDIZE = (function () {
       if (tribe1.name === tribe2.name) return hybridize(tribes);
 
       const tribe1Name = document.getElementById('tribe_1_name');
-      const tribe1Photo = document.getElementById('tribe_1_photo');
-
       const tribe2Name = document.getElementById('tribe_2_name');
+      const tribe1Photo = document.getElementById('tribe_1_photo');
       const tribe2Photo = document.getElementById('tribe_2_photo');
 
       tribe1Name.innerHTML = tribe1.name;
-      tribe1Photo.setAttribute('src', `./images/${tribe1.photo}`);
-
       tribe2Name.innerHTML = tribe2.name;
-      tribe2Photo.setAttribute('src', `./images/${tribe2.photo}`);
+      
+      setTimeout(function () {
+        tribe1Photo.setAttribute('src', `./images/${tribe1.photo}`);
+        tribe2Photo.setAttribute('src', `./images/${tribe2.photo}`);
+      }, 100);
     },
 
     countdown: function countdown() {
@@ -72,7 +73,6 @@ const HYBRIDIZE = (function () {
       statusMsg.textContent = duration;
       const countdown = setInterval(function () {
         duration -= 1;
-        console.log(duration);
         statusMsg.textContent = duration;
         if (duration <= 0) {
           console.log('done!');
@@ -84,9 +84,9 @@ const HYBRIDIZE = (function () {
 
     showMixed: function hideUnMixed() {
       const items = document.getElementsByClassName('hide');
-      Object.keys(items)
-        .forEach(function (index) {
-          items[index].classList.replace('hide', 'show');
+      Object.values(items)
+        .forEach(function (item) {
+          item.classList.replace('hide', 'show');
         })
     },
 
