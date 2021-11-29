@@ -1,0 +1,11 @@
+.panel {
+  text-align: center;
+}
+
+.panel img {
+  height: 200px;
+}
+
+#tribe_2_photo {
+  transform: rotateY(180deg);
+}
